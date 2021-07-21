@@ -63,4 +63,6 @@ Rails.application.configure do
 
   config.web_console.whitelisted_ips = '0.0.0.0/0'
   config.hosts << 'localhost'
+
+  # config.action_controller.asset_host = "ddt43vz7r2may.cloudfront.net"
 end

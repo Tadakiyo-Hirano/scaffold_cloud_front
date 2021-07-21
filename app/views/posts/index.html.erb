@@ -14,7 +14,9 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
-        <td><%= image_tag post.image.variant(resize: "500x500") if post.image.attached? %></td>
+        <td><%= image_tag cdn_ready_blob_path(post.image), :width => '31%', :height => 'auto' if post.image.attached? %></td>
+        <!-- <= image_tag rails_representation_path post.image.blob.variant(resize: "500") %> -->
+        <!-- <img src="<= cdn_ready_blob_path post.image.variant(resize: "500x500") %>" /> -->
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
